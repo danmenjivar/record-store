@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var AlbumSchema = new Schema({
     title: { type: String, required: true, maxLength: 100 },
     description: { type: String },
-    genre: { type: Schema.Types.ObjectId, ref: 'Genre' },
+    genre: [{ type: Schema.Types.ObjectId, ref: 'Genre' }],
     artist: { type: Schema.Types.ObjectId, ref: 'Artist' },
     release_date: { type: Date },
     price: { type: mongoose.Decimal128 },
