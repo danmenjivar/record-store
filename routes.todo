@@ -1,0 +1,7 @@
+# Routes needed for RecordStore
+* inventory/ - home/index page
+* inventory/<objects> - The list of all records, genres, and artists (/inventory/records, /inventory/genres, etc.)
+* catalog/<object>/create - form to create a new record, genre or artist
+* catalog/<object>/<id>/update - form to update specific record, genre, or artist
+* catalog/<object>/<id>/delete - form to delete specific record, genre, or artist
+* some way to update stock?
