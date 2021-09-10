@@ -1,8 +1,17 @@
 var Artist = require('../models/artist');
 
 // Display list of all Artists
-exports.artist_list = function (req, res) {
-    res.send('NOT IMPLEMENTED: Artist list');
+exports.artist_list = function (req, res, next) {
+    Artist.find().exec(function (err, list_artists) {
+        if (err) {
+            return next(err);
+        }
+        // Successfully, so render
+        res.render('artist_list', {
+            title: 'Artist List',
+            artist_list: list_artists,
+        });
+    });
 };
 
 // Display detail page for a specific artist.

@@ -1,7 +1,42 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(
+      src='https://code.jquery.com/jquery-3.5.1.slim.min.js',
+      integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj',
+      crossorigin='anonymous'
+    )
+    script(
+      src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js',
+      integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV',
+      crossorigin='anonymous'
+    )
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .container-fluid
+      .row
+        .col-sm-2
+          block sidebar
+            ul.sidebar-nav
+              li
+                a(href='/inventory') Home
+              li
+                a(href='/inventory/albums') All albums
+              li
+                a(href='/inventory/artists') All artists
+              li
+                a(href='/inventory/genres') All genres
+              li
+                hr
+              li
+                a(href='/inventory/artist/create') Create new artist
+              li
+                a(href='/inventory/genre/create') Create new genre
+              li
+                a(href='/inventory/album/create') Create new album
+
+        .col-sm-10
+          block content
