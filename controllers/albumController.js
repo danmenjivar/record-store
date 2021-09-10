@@ -45,8 +45,33 @@ exports.album_list = function (req, res, next) {
 };
 
 // Display detail for a specific album
-exports.album_detail = function (req, res) {
-    res.send('NOT IMPLEMENTED: Album detailL ' + req.params.id);
+exports.album_detail = function (req, res, next) {
+    async.parallel(
+        {
+            album: function (callback) {
+                Album.findById(req.params.id)
+                    .populate('album')
+                    .populate('artist')
+                    .populate('genre')
+                    .exec(callback);
+            },
+        },
+        function (err, results) {
+            if (err) {
+                return next(err);
+            }
+            if (results.album == null) {
+                // no results
+                var err = new Error('Album not found');
+                err.status = 404;
+                return next(err);
+            }
+            res.render('album_detail', {
+                title: results.album.title,
+                album: results.album,
+            });
+        }
+    );
 };
 
 // Display Album create form on GET
