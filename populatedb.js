@@ -65,13 +65,16 @@ function albumCreate(
     albumdetail = {
         title,
         description,
+        genre,
+        artist,
+        release_date,
         price,
         number_in_stock,
     };
 
-    if (genre != false) albumdetail.genre = genre;
-    if (artist != false) albumdetail.artist = artist;
-    if (release_date != false) albumdetail.release_date = release_date;
+    // if (genre != false) albumdetail.genre = genre;
+    // if (artist != false) albumdetail.artist = artist;
+    // if (release_date != false) albumdetail.release_date = release_date;
 
     var album = new Album(albumdetail);
     album.save(function (err) {
@@ -140,7 +143,7 @@ function createAlbums(cb) {
                     'The Rise and Fall of Ziggy Stardust',
                     'The Rise and Fall of Ziggy Stardust and the Spiders from Mars is the fifth studio album by David Bowie, which is loosely based on a story of a fictional rock star named Ziggy Stardust.Rhino will be breaking out ‘breaking out’ this albums from the David Bowie ‘Five Years 1969 – 1973’ box as a standalone releases. Available on1LP 180g Audiophile vinyl',
                     [genres[0]],
-                    artist[0],
+                    artists[0],
                     '1972-06-16',
                     31.2,
                     3,
@@ -152,7 +155,7 @@ function createAlbums(cb) {
                     'Abbey Road',
                     "The Beatles' acclaimed original studio album remasters, released on CD in 2009, make their long-awaited stereo vinyl debut",
                     [genres[0]],
-                    artist[1],
+                    artists[1],
                     '1969-09-26',
                     21.84,
                     2,
@@ -164,7 +167,7 @@ function createAlbums(cb) {
                     'Pet Sounds',
                     '2008 vinyl LP pressing of The Beach Boys\' masterpiece, originally released in 1966. Capitol. from the album sleeve: "This monophonic microgroove recording is playable on monophonic and stereo phonographs. It cannot become obsolete. It will continue to be a source of outstanding sound reproduction, providing the finest monophonic performance from any phonograph.',
                     [genres[0]],
-                    artist[2],
+                    artists[2],
                     '1966-05-16',
                     18.98,
                     4,
@@ -176,7 +179,7 @@ function createAlbums(cb) {
                     'Songs in the Key of Life',
                     'The album was viewed as a guided tour through a wide range of musical styles and the life and feelings of the artist. It included recollections of childhood, of first love and lost love. It contained songs about faith and love among all peoples and songs about social justice for the poor and downtrodden.',
                     [genres[1]],
-                    artist[3],
+                    artists[3],
                     '1976-09-28',
                     14.9,
                     1,
@@ -188,7 +191,7 @@ function createAlbums(cb) {
                     'Rumours',
                     'This Diamond Award Winning, Grammy "Album Of The Year" masterpiece from Fleetwood Mac is available as an Audiophile Deluxe Version pressed on 2-Disc 45 RPM, 180 gram vinyl (pressed At Pallas), as well as a standard 33 1/3 single disc.',
                     [genres[0]],
-                    artist[4],
+                    artists[4],
                     '1977-02-04',
                     21.43,
                     2,
@@ -200,7 +203,7 @@ function createAlbums(cb) {
                     'Aja',
                     `The song's lyrics center around the interior monologue of a man who runs to the title character to escape the stresses of his life "up on the hill." Fagen claimed that it was inspired by a relative of someone he knew, who had married a Korean woman named Aja.`,
                     [genres[2]],
-                    artist[5],
+                    artists[5],
                     '1977-09-23',
                     30.0,
                     2,
